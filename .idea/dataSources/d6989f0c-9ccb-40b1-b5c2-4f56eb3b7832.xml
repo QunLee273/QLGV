@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-06-19.07:59:18</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-06-19.08:34:48</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1633,11 +1633,13 @@
     </column>
     <foreign-key id="571" parent="555">
       <ColNames>MaGV</ColNames>
+      <OnDelete>set-null</OnDelete>
       <RefColNames>MaGV</RefColNames>
       <RefTableName>GiangVien</RefTableName>
     </foreign-key>
     <foreign-key id="572" parent="555">
       <ColNames>MaSV</ColNames>
+      <OnDelete>set-null</OnDelete>
       <RefColNames>MaSV</RefColNames>
       <RefTableName>SinhVien</RefTableName>
     </foreign-key>
@@ -1719,6 +1721,7 @@
     </column>
     <foreign-key id="591" parent="558">
       <ColNames>MaGVPT</ColNames>
+      <OnDelete>set-null</OnDelete>
       <RefColNames>MaGV</RefColNames>
       <RefTableName>GiangVien</RefTableName>
     </foreign-key>
@@ -1759,16 +1762,19 @@
     </column>
     <foreign-key id="600" parent="559">
       <ColNames>MaGV</ColNames>
+      <OnDelete>set-null</OnDelete>
       <RefColNames>MaGV</RefColNames>
       <RefTableName>GiangVien</RefTableName>
     </foreign-key>
     <foreign-key id="601" parent="559">
       <ColNames>MaHP</ColNames>
+      <OnDelete>set-null</OnDelete>
       <RefColNames>MaHP</RefColNames>
       <RefTableName>HocPhan</RefTableName>
     </foreign-key>
     <foreign-key id="602" parent="559">
       <ColNames>MaLop</ColNames>
+      <OnDelete>set-null</OnDelete>
       <RefColNames>MaLop</RefColNames>
       <RefTableName>Lop</RefTableName>
     </foreign-key>
@@ -1810,6 +1816,7 @@
     </column>
     <foreign-key id="612" parent="560">
       <ColNames>MaLop</ColNames>
+      <OnDelete>set-null</OnDelete>
       <RefColNames>MaLop</RefColNames>
       <RefTableName>Lop</RefTableName>
     </foreign-key>

@@ -12,6 +12,9 @@ cur = conn.cursor()
 tieuDe = Label(window, text="Quản lý giảng viên", font=("Arial", 24), justify="center")
 tieuDe.pack()
 
-muc1 = Label(text="")
+muc1 = Label(text="Nhập thông tin:", font=("Arial", 18), justify="left")
+muc1.pack(side=LEFT, padx=10)
+
+lb_mgv = Label(text="Mgv", font=("Arial", 14))
 
 window.mainloop()
