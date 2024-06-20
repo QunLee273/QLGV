@@ -3,10 +3,35 @@ import subprocess
 import sys
 from tkinter import messagebox
 
+from danhgia import Ui_Danhgia
+from hocphan import Ui_Hocphan
+from lophoc import Ui_lophoc
+from phancong import Ui_phancong
+
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class UI_Giangvien(object):
+    def openDG(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_Danhgia()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    def openHP(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_Hocphan()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    def openLH(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_lophoc()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    def openPC(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_phancong()
+        self.ui.setupUi(self.window)
+        self.window.show()
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1225, 728)
@@ -47,7 +72,7 @@ class UI_Giangvien(object):
         self.giangvien_btn1.setAutoExclusive(True)
         self.giangvien_btn1.setObjectName("giangvien_btn1")
         self.verticalLayout.addWidget(self.giangvien_btn1)
-        self.hocphan_btn1 = QtWidgets.QPushButton(parent=self.icon_only_widget)
+        self.hocphan_btn1 = QtWidgets.QPushButton(parent=self.icon_only_widget,)
         self.hocphan_btn1.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("laptop.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
@@ -80,17 +105,17 @@ class UI_Giangvien(object):
         self.phancong_btn1.setAutoExclusive(True)
         self.phancong_btn1.setObjectName("phancong_btn1")
         self.verticalLayout.addWidget(self.phancong_btn1)
-        self.lichhoc_btn1 = QtWidgets.QPushButton(parent=self.icon_only_widget)
-        self.lichhoc_btn1.setText("")
+        self.danhgia_btn1 = QtWidgets.QPushButton(parent=self.icon_only_widget)
+        self.danhgia_btn1.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("lich.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         icon4.addPixmap(QtGui.QPixmap("lich.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
-        self.lichhoc_btn1.setIcon(icon4)
-        self.lichhoc_btn1.setIconSize(QtCore.QSize(20, 20))
-        self.lichhoc_btn1.setCheckable(True)
-        self.lichhoc_btn1.setAutoExclusive(True)
-        self.lichhoc_btn1.setObjectName("lichhoc_btn1")
-        self.verticalLayout.addWidget(self.lichhoc_btn1)
+        self.danhgia_btn1.setIcon(icon4)
+        self.danhgia_btn1.setIconSize(QtCore.QSize(20, 20))
+        self.danhgia_btn1.setCheckable(True)
+        self.danhgia_btn1.setAutoExclusive(True)
+        self.danhgia_btn1.setObjectName("danhgia_btn1")
+        self.verticalLayout.addWidget(self.danhgia_btn1)
         self.verticalLayout_3.addLayout(self.verticalLayout)
         spacerItem = QtWidgets.QSpacerItem(20, 375, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_3.addItem(spacerItem)
@@ -169,16 +194,16 @@ class UI_Giangvien(object):
         self.phancong_btn2.setAutoExclusive(True)
         self.phancong_btn2.setObjectName("phancong_btn2")
         self.verticalLayout_2.addWidget(self.phancong_btn2)
-        self.lichhoc_btn2 = QtWidgets.QPushButton(parent=self.full_menu_widget)
+        self.danhgia_btn2 = QtWidgets.QPushButton(parent=self.full_menu_widget)
         icon10 = QtGui.QIcon()
         icon10.addPixmap(QtGui.QPixmap("icon/group-32.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         icon10.addPixmap(QtGui.QPixmap("icon/group-48.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
-        self.lichhoc_btn2.setIcon(icon10)
-        self.lichhoc_btn2.setIconSize(QtCore.QSize(14, 14))
-        self.lichhoc_btn2.setCheckable(True)
-        self.lichhoc_btn2.setAutoExclusive(True)
-        self.lichhoc_btn2.setObjectName("lichhoc_btn2")
-        self.verticalLayout_2.addWidget(self.lichhoc_btn2)
+        self.danhgia_btn2.setIcon(icon10)
+        self.danhgia_btn2.setIconSize(QtCore.QSize(14, 14))
+        self.danhgia_btn2.setCheckable(True)
+        self.danhgia_btn2.setAutoExclusive(True)
+        self.danhgia_btn2.setObjectName("danhgia_btn2")
+        self.verticalLayout_2.addWidget(self.danhgia_btn2)
         self.verticalLayout_4.addLayout(self.verticalLayout_2)
         spacerItem1 = QtWidgets.QSpacerItem(20, 373, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_4.addItem(spacerItem1)
@@ -356,12 +381,12 @@ class UI_Giangvien(object):
         self.hocphan_btn1.toggled['bool'].connect(self.hocphan_btn2.setChecked) # type: ignore
         self.lophoc_btn1.toggled['bool'].connect(self.lophoc_btn2.setChecked) # type: ignore
         self.phancong_btn1.toggled['bool'].connect(self.phancong_btn2.setChecked) # type: ignore
-        self.lichhoc_btn1.toggled['bool'].connect(self.lichhoc_btn2.setChecked) # type: ignore
+        self.danhgia_btn1.toggled['bool'].connect(self.danhgia_btn2.setChecked) # type: ignore
         self.giangvien_btn2.toggled['bool'].connect(self.giangvien_btn1.setChecked) # type: ignore
         self.hocphan_btn2.toggled['bool'].connect(self.hocphan_btn1.setChecked) # type: ignore
         self.lophoc_btn2.toggled['bool'].connect(self.lophoc_btn1.setChecked) # type: ignore
         self.phancong_btn2.toggled['bool'].connect(self.phancong_btn1.setChecked) # type: ignore
-        self.lichhoc_btn2.toggled['bool'].connect(self.lichhoc_btn1.setChecked) # type: ignore
+        self.danhgia_btn2.toggled['bool'].connect(self.danhgia_btn1.setChecked) # type: ignore
         self.exit_btn_2.clicked.connect(MainWindow.close) # type: ignore
         self.exit_btn_1.clicked.connect(MainWindow.close) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -380,7 +405,7 @@ class UI_Giangvien(object):
         self.hocphan_btn2.setText(_translate("MainWindow", "Học phần"))
         self.lophoc_btn2.setText(_translate("MainWindow", "Lớp học"))
         self.phancong_btn2.setText(_translate("MainWindow", "Phân công"))
-        self.lichhoc_btn2.setText(_translate("MainWindow", "Lịch học"))
+        self.danhgia_btn2.setText(_translate("MainWindow", "Đánh giá"))
         self.exit_btn_2.setText(_translate("MainWindow", "Thoát"))
         self.search_input.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.label_4.setText(_translate("MainWindow", "Home Page"))
