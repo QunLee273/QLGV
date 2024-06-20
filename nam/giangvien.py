@@ -7,7 +7,6 @@
 import sqlite3
 import sys
 
-import pandas as pd
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
@@ -97,8 +96,7 @@ class UI_Giangvien(object):
         self.lichhoc_btn1.setObjectName("lichhoc_btn1")
         self.verticalLayout.addWidget(self.lichhoc_btn1)
         self.verticalLayout_3.addLayout(self.verticalLayout)
-        spacerItem = QtWidgets.QSpacerItem(20, 375, QtWidgets.QSizePolicy.Policy.Minimum,
-                                           QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(20, 375, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_3.addItem(spacerItem)
         self.exit_btn_1 = QtWidgets.QPushButton(parent=self.icon_only_widget)
         self.exit_btn_1.setText("")
@@ -157,10 +155,8 @@ class UI_Giangvien(object):
         self.verticalLayout_2.addWidget(self.hocphan_btn2)
         self.lophoc_btn2 = QtWidgets.QPushButton(parent=self.full_menu_widget)
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("icon/activity-feed-32.ico"), QtGui.QIcon.Mode.Normal,
-                        QtGui.QIcon.State.Off)
-        icon8.addPixmap(QtGui.QPixmap("icon/activity-feed-48.ico"), QtGui.QIcon.Mode.Normal,
-                        QtGui.QIcon.State.On)
+        icon8.addPixmap(QtGui.QPixmap("icon/activity-feed-32.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon8.addPixmap(QtGui.QPixmap("icon/activity-feed-48.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
         self.lophoc_btn2.setIcon(icon8)
         self.lophoc_btn2.setIconSize(QtCore.QSize(14, 14))
         self.lophoc_btn2.setCheckable(True)
@@ -188,8 +184,7 @@ class UI_Giangvien(object):
         self.lichhoc_btn2.setObjectName("lichhoc_btn2")
         self.verticalLayout_2.addWidget(self.lichhoc_btn2)
         self.verticalLayout_4.addLayout(self.verticalLayout_2)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 373, QtWidgets.QSizePolicy.Policy.Minimum,
-                                            QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 373, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_4.addItem(spacerItem1)
         self.exit_btn_2 = QtWidgets.QPushButton(parent=self.full_menu_widget)
         self.exit_btn_2.setIcon(icon5)
@@ -220,8 +215,7 @@ class UI_Giangvien(object):
         self.menu_btn.setCheckable(True)
         self.menu_btn.setObjectName("menu_btn")
         self.horizontalLayout_4.addWidget(self.menu_btn)
-        spacerItem2 = QtWidgets.QSpacerItem(236, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                            QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem2 = QtWidgets.QSpacerItem(236, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_4.addItem(spacerItem2)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setSpacing(10)
@@ -238,8 +232,7 @@ class UI_Giangvien(object):
         self.search_btn.setObjectName("search_btn")
         self.horizontalLayout.addWidget(self.search_btn)
         self.horizontalLayout_4.addLayout(self.horizontalLayout)
-        spacerItem3 = QtWidgets.QSpacerItem(236, 20, QtWidgets.QSizePolicy.Policy.Expanding,
-                                            QtWidgets.QSizePolicy.Policy.Minimum)
+        spacerItem3 = QtWidgets.QSpacerItem(236, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_4.addItem(spacerItem3)
         self.verticalLayout_5.addWidget(self.widget)
         self.stackedWidget = QtWidgets.QStackedWidget(parent=self.widget_3)
@@ -315,7 +308,7 @@ class UI_Giangvien(object):
         self.tableWidget = QtWidgets.QTableWidget(parent=self.page_8)
         self.tableWidget.setGeometry(QtCore.QRect(0, 0, 1021, 621))
         self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(7)
+        self.tableWidget.setColumnCount(6)
         self.tableWidget.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
@@ -329,19 +322,17 @@ class UI_Giangvien(object):
         self.tableWidget.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(6, item)
         self.stackedWidget_2.addWidget(self.page_8)
         self.gridLayout_7.addWidget(self.stackedWidget_2, 0, 0, 1, 1)
         self.widget_2 = QtWidgets.QWidget(parent=self.page_6)
         self.widget_2.setObjectName("widget_2")
         self.gridLayout_7.addWidget(self.widget_2, 2, 0, 1, 1)
-        self.btn_xuat = QtWidgets.QPushButton(parent=self.page_6)
+        self.pushButton = QtWidgets.QPushButton(parent=self.page_6)
         font = QtGui.QFont()
         font.setPointSize(11)
-        self.btn_xuat.setFont(font)
-        self.btn_xuat.setObjectName("btn_xuat")
-        self.gridLayout_7.addWidget(self.btn_xuat, 1, 0, 1, 1)
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+        self.gridLayout_7.addWidget(self.pushButton, 1, 0, 1, 1)
         self.stackedWidget.addWidget(self.page_6)
         self.page_7 = QtWidgets.QWidget()
         self.page_7.setObjectName("page_7")
@@ -362,28 +353,23 @@ class UI_Giangvien(object):
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(5)
         self.stackedWidget_2.setCurrentIndex(0)
-        self.menu_btn.toggled['bool'].connect(self.icon_only_widget.setVisible)  # type: ignore
-        self.menu_btn.toggled['bool'].connect(self.full_menu_widget.setHidden)  # type: ignore
-        self.giangvien_btn1.toggled['bool'].connect(self.giangvien_btn2.setChecked)  # type: ignore
-        self.hocphan_btn1.toggled['bool'].connect(self.hocphan_btn2.setChecked)  # type: ignore
-        self.lophoc_btn1.toggled['bool'].connect(self.lophoc_btn2.setChecked)  # type: ignore
-        self.phancong_btn1.toggled['bool'].connect(self.phancong_btn2.setChecked)  # type: ignore
-        self.lichhoc_btn1.toggled['bool'].connect(self.lichhoc_btn2.setChecked)  # type: ignore
-        self.giangvien_btn2.toggled['bool'].connect(self.giangvien_btn1.setChecked)  # type: ignore
-        self.hocphan_btn2.toggled['bool'].connect(self.hocphan_btn1.setChecked)  # type: ignore
-        self.lophoc_btn2.toggled['bool'].connect(self.lophoc_btn1.setChecked)  # type: ignore
-        self.phancong_btn2.toggled['bool'].connect(self.phancong_btn1.setChecked)  # type: ignore
-        self.lichhoc_btn2.toggled['bool'].connect(self.lichhoc_btn1.setChecked)  # type: ignore
-        self.exit_btn_2.clicked.connect(MainWindow.close)  # type: ignore
-        self.exit_btn_1.clicked.connect(MainWindow.close)  # type: ignore
+        self.menu_btn.toggled['bool'].connect(self.icon_only_widget.setVisible) # type: ignore
+        self.menu_btn.toggled['bool'].connect(self.full_menu_widget.setHidden) # type: ignore
+        self.giangvien_btn1.toggled['bool'].connect(self.giangvien_btn2.setChecked) # type: ignore
+        self.hocphan_btn1.toggled['bool'].connect(self.hocphan_btn2.setChecked) # type: ignore
+        self.lophoc_btn1.toggled['bool'].connect(self.lophoc_btn2.setChecked) # type: ignore
+        self.phancong_btn1.toggled['bool'].connect(self.phancong_btn2.setChecked) # type: ignore
+        self.lichhoc_btn1.toggled['bool'].connect(self.lichhoc_btn2.setChecked) # type: ignore
+        self.giangvien_btn2.toggled['bool'].connect(self.giangvien_btn1.setChecked) # type: ignore
+        self.hocphan_btn2.toggled['bool'].connect(self.hocphan_btn1.setChecked) # type: ignore
+        self.lophoc_btn2.toggled['bool'].connect(self.lophoc_btn1.setChecked) # type: ignore
+        self.phancong_btn2.toggled['bool'].connect(self.phancong_btn1.setChecked) # type: ignore
+        self.lichhoc_btn2.toggled['bool'].connect(self.lichhoc_btn1.setChecked) # type: ignore
+        self.exit_btn_2.clicked.connect(MainWindow.close) # type: ignore
+        self.exit_btn_1.clicked.connect(MainWindow.close) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         MainWindow.showMaximized()
-
-        self.btn_xuat.clicked.connect(self.xuatexcel)
-        self.search_input.textChanged.connect(self.search_database)
-
-        # Gọi hàm loaddata khi khởi động
         self.insert_data()
 
     def retranslateUi(self, MainWindow):
@@ -414,33 +400,9 @@ class UI_Giangvien(object):
         item.setText(_translate("MainWindow", "Email"))
         item = self.tableWidget.horizontalHeaderItem(5)
         item.setText(_translate("MainWindow", "Số điện thoại"))
-        self.btn_xuat.setText(_translate("MainWindow", "Xuất file excel"))
+        self.pushButton.setText(_translate("MainWindow", "Xuất file excel"))
         self.label_10.setText(_translate("MainWindow", "User Page"))
 
-    def xuatexcel(self):
-        # Hàm này sẽ được gọi khi nhấn nút btn_xuatexcel
-        print("Xuất Excel...")
-        rowCount = self.tableWidget.rowCount()
-        columnCount = self.tableWidget.columnCount()
-
-        # Tạo danh sách để lưu dữ liệu
-        data = []
-        for row in range(rowCount):
-            rowData = []
-            for column in range(columnCount):
-                item = self.tableWidget.item(row, column)
-                if item is not None:
-                    rowData.append(item.text())
-                else:
-                    rowData.append('')
-            data.append(rowData)
-
-        # Chuyển đổi dữ liệu thành DataFrame của pandas
-        df = pd.DataFrame(data)
-
-        # Xuất DataFrame ra file Excel
-        df.to_excel('giangvien.xlsx', index=False)
-        print("Dữ liệu đã được xuất ra file output.xlsx")
     def insert_data(self):
         try:
             connection = sqlite3.connect("qlgv.db")
@@ -467,21 +429,6 @@ class UI_Giangvien(object):
             if connection:
                 connection.close()
 
-    def search_database(self):
-        search_text = self.search_input.text()
-
-        conn = sqlite3.connect('qlgv.db')
-        cursor = conn.cursor()
-        query = "SELECT HoTen,NgaySinh,GioiTinh,DiaChi,Email,SoDienThoai FROM giangvien WHERE HoTen LIKE ?"
-        cursor.execute(query, ('%' + search_text + '%',))
-        results = cursor.fetchall()
-        conn.close()
-
-        self.tableWidget.setRowCount(0)
-        for row_number, row_data in enumerate(results):
-            self.tableWidget.insertRow(row_number)
-            for column_number, data in enumerate(row_data):
-                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
 def main():
     app = QtWidgets.QApplication(sys.argv)
 
