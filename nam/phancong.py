@@ -226,6 +226,7 @@ class Ui_phancong(object):
         self.horizontalLayout.setSpacing(10)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.search_input = QtWidgets.QLineEdit(parent=self.widget)
+        self.search_input.setStyleSheet("color:rgb(40, 42, 54)")
         self.search_input.setObjectName("search_input")
         self.horizontalLayout.addWidget(self.search_input)
         self.search_btn = QtWidgets.QPushButton(parent=self.widget)
@@ -451,13 +452,14 @@ class Ui_phancong(object):
 
         conn = sqlite3.connect('qlgv.db')
         cursor = conn.cursor()
-        query = f'''
-    SELECT pc.MaPC, gv.HoTen AS GiangVien, hp.TenHP AS HocPhan, pc.HocKy, pc.NamHoc, l.TenLop AS Lop
-    FROM PhanCong pc
-    JOIN GiangVien gv ON pc.MaGV = gv.MaGV
-    JOIN HocPhan hp ON pc.MaHP = hp.MaHP
-    LEFT JOIN Lop l ON pc.MaLop = l.MaLop
-'''
+        query = '''
+                    SELECT pc.MaPC, gv.HoTen AS GiangVien, hp.TenHP AS HocPhan, pc.HocKy, pc.NamHoc, l.TenLop AS Lop
+                    FROM PhanCong pc
+                    JOIN GiangVien gv ON pc.MaGV = gv.MaGV
+                    JOIN HocPhan hp ON pc.MaHP = hp.MaHP
+                    LEFT JOIN Lop l ON pc.MaLop = l.MaLop 
+                    WHERE gv.HoTen LIKE ?
+                '''
         cursor.execute(query, ('%' + search_text + '%',))
         results = cursor.fetchall()
         conn.close()
@@ -476,7 +478,7 @@ def main():
         app.setStyleSheet(file.read())
 
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_phancong()
     ui.setupUi(MainWindow)
     MainWindow.showMaximized()
     sys.exit(app.exec())

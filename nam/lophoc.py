@@ -225,6 +225,7 @@ class Ui_lophoc(object):
         self.horizontalLayout.setSpacing(10)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.search_input = QtWidgets.QLineEdit(parent=self.widget)
+        self.search_input.setStyleSheet("color:rgb(40, 42, 54)")
         self.search_input.setObjectName("search_input")
         self.horizontalLayout.addWidget(self.search_input)
         self.search_btn = QtWidgets.QPushButton(parent=self.widget)
@@ -450,20 +451,25 @@ class Ui_lophoc(object):
         messagebox.showinfo("Thông báo", "Đã xuất file thành công")
 
     def search_database(self):
-        search_text = self.search_input.text()
+            search_text = self.search_input.text()
 
-        conn = sqlite3.connect('qlgv.db')
-        cursor = conn.cursor()
-        query = "SELECT HoTen,NgaySinh,GioiTinh,DiaChi,Email,SoDienThoai FROM giangvien WHERE HoTen LIKE ?"
-        cursor.execute(query, ('%' + search_text + '%',))
-        results = cursor.fetchall()
-        conn.close()
+            conn = sqlite3.connect('qlgv.db')
+            cursor = conn.cursor()
+            query = '''
+                        SELECT sv.MaSV, sv.HoTen, sv.NgaySinh, sv.GioiTinh, sv.DiaChi, sv.Email, sv.SoDienThoai, l.TenLop
+                        FROM SinhVien sv
+                        JOIN Lop l ON sv.MaLop = l.MaLop 
+                        WHERE sv.HoTen LIKE ?
+        '''
+            cursor.execute(query, ('%' + search_text + '%',))
+            results = cursor.fetchall()
+            conn.close()
 
-        self.tableWidget.setRowCount(0)
-        for row_number, row_data in enumerate(results):
-            self.tableWidget.insertRow(row_number)
-            for column_number, data in enumerate(row_data):
-                self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
+            self.tableWidget.setRowCount(0)
+            for row_number, row_data in enumerate(results):
+                self.tableWidget.insertRow(row_number)
+                for column_number, data in enumerate(row_data):
+                    self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
@@ -473,7 +479,7 @@ def main():
         app.setStyleSheet(file.read())
 
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_lophoc()
     ui.setupUi(MainWindow)
     MainWindow.showMaximized()
     sys.exit(app.exec())

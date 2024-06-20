@@ -225,6 +225,7 @@ class Ui_Danhgia(object):
         self.horizontalLayout.setSpacing(10)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.search_input = QtWidgets.QLineEdit(parent=self.widget)
+        self.search_input.setStyleSheet("color: black;")
         self.search_input.setObjectName("search_input")
         self.horizontalLayout.addWidget(self.search_input)
         self.search_btn = QtWidgets.QPushButton(parent=self.widget)
@@ -447,10 +448,11 @@ class Ui_Danhgia(object):
 
         conn = sqlite3.connect('qlgv.db')
         cursor = conn.cursor()
-        query = """SELECT dg.MaDG, gv.HoTen, sv.HoTen, dg.NoiDung, dg.DiemSo, dg.NgayDanhGia
+        query = """SELECT dg.MaDG, gv.HoTen AS TenGiangVien, sv.HoTen AS TenSinhVien, dg.NoiDung, dg.DiemSo, dg.NgayDanhGia
                     FROM DanhGia dg
                     JOIN GiangVien gv ON dg.MaGV = gv.MaGV
-                    JOIN SinhVien sv ON dg.MaSV = sv.MaSV"""
+                    JOIN SinhVien sv ON dg.MaSV = sv.MaSV
+                    WHERE gv.HoTen LIKE ? """
         cursor.execute(query, ('%' + search_text + '%',))
         results = cursor.fetchall()
         conn.close()

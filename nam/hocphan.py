@@ -446,7 +446,10 @@ class Ui_Hocphan(object):
 
         conn = sqlite3.connect('qlgv.db')
         cursor = conn.cursor()
-        query = "SELECT HoTen,NgaySinh,GioiTinh,DiaChi,Email,SoDienThoai FROM giangvien WHERE HoTen LIKE ?"
+        query = """SELECT hp.MaHP, hp.TenHP, hp.SoTinChi, gv.HoTen AS TenGiangVien, pc.HocKy, pc.NamHoc
+                            FROM HocPhan hp
+                            JOIN PhanCong pc ON hp.MaHP = pc.MaHP
+                            JOIN GiangVien gv ON pc.MaGV = gv.MaGV WHERE hp.TenHP LIKE ?"""
         cursor.execute(query, ('%' + search_text + '%',))
         results = cursor.fetchall()
         conn.close()
