@@ -724,7 +724,7 @@
             <widget class="QWidget" name="widget_2" native="true"/>
            </item>
            <item row="1" column="0">
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="btn_xuat">
              <property name="font">
               <font>
                <pointsize>11</pointsize>
