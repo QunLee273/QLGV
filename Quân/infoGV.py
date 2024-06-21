@@ -4,17 +4,19 @@ import sqlite3
 from tkinter import ttk
 from tkinter import messagebox
 import re
+import openpyxl
 
-main_GV = Tk()
-main_GV.title("Quản lý giảng viên")
+
+chinhSua_GV = Tk()
+chinhSua_GV.title("Quản lý giảng viên")
 
 # Kết nối DB
 conn = sqlite3.connect("qlgv.db")
 cur = conn.cursor()
 
-def manHinh():
-    main_GV.attributes("-fullscreen", not main_GV.attributes("-fullscreen"))
-    main_GV.geometry("1280x720")
+def manHinh(event):
+    chinhSua_GV.attributes("-fullscreen", not chinhSua_GV.attributes("-fullscreen"))
+    chinhSua_GV.geometry("1280x720")
 
 def ht_bang():
     # Xóa dữ liệu cũ trong Treeview
@@ -281,83 +283,115 @@ def xoa():
         messagebox.showerror("Lỗi", f"Lỗi: {str(e)}")
 
 
+def xuat_excel():
+    try:
+        # Truy vấn tất cả dữ liệu từ bảng GiangVien
+        cur.execute("SELECT * FROM GiangVien")
+        rows = cur.fetchall()
+
+        # Tạo một workbook và worksheet mới
+        wb = openpyxl.Workbook()
+        ws = wb.active
+        ws.title = "GiangVien"
+
+        # Thiết lập tiêu đề cột
+        cot = ["MaGV", "HoTen", "NgaySinh", "GioiTinh", "DiaChi", "Email", "SoDienThoai"]
+        ws.append(cot)
+
+        # Thêm dữ liệu vào worksheet
+        for row in rows:
+            ws.append(row)
+
+        # Lưu file Excel
+        wb.save("DanhSachGiangVien.xlsx")
+
+        # Hiển thị thông báo khi xuất thành công
+        messagebox.showinfo("Thông báo", "Xuất file Excel thành công")
+
+    except Exception as e:
+        # Hiển thị thông báo khi có lỗi xảy ra
+        messagebox.showerror("Lỗi", f"Lỗi: {str(e)}")
+
 
 ## Tạo form
 #Label, Entry
 
-tieuDe = Label(main_GV, text="Quản lý giảng viên", font=("Arial", 24, 'bold'), justify="center")
+tieuDe = Label(chinhSua_GV, text="Quản lý giảng viên", font=("Arial", 24, 'bold'), justify="center")
 tieuDe.place(x=600, y=20)
 
-muc1 = Label(main_GV, text="Nhập thông tin:", font=("Arial", 18, 'bold'))
+muc1 = Label(chinhSua_GV, text="Nhập thông tin:", font=("Arial", 18, 'bold'))
 muc1.place(x=40, y=140)
 
-lb_tk = Label(main_GV, text="Tìm kiếm: ", font=("Arial", 12))
+lb_tk = Label(chinhSua_GV, text="Tìm kiếm: ", font=("Arial", 12))
 lb_tk.place(x=780, y=155, width=200, height=30)
-et_tk = Entry(main_GV, bd=2, relief=SOLID)
+et_tk = Entry(chinhSua_GV, bd=2, relief=SOLID)
 et_tk.bind("<KeyRelease>", timKiem)
 et_tk.place(x=930, y=155, width=250, height=30)
 
-lb_mgv = Label(main_GV, text="Mã GV: ", font=("Arial", 12))
+lb_mgv = Label(chinhSua_GV, text="Mã GV: ", font=("Arial", 12))
 lb_mgv.place(x=20, y=190, width=200, height=30)
-et_mgv = Entry(main_GV, font=("Arial", 12))
+et_mgv = Entry(chinhSua_GV, font=("Arial", 12))
 et_mgv.place(x=230, y=190, width=250, height=30)
 
-lb_tenGV = Label(main_GV, text="Tên GV: ", font=("Arial", 12))
+lb_tenGV = Label(chinhSua_GV, text="Tên GV: ", font=("Arial", 12))
 lb_tenGV.place(x=20, y=230, width=200, height=30)
-et_tenGV = Entry(main_GV, font=("Arial", 12))
+et_tenGV = Entry(chinhSua_GV, font=("Arial", 12))
 et_tenGV.place(x=230, y=230, width=250, height=30)
 
-lb_ns = Label(main_GV, text="Ngày sinh: ", font=("Arial", 12))
+lb_ns = Label(chinhSua_GV, text="Ngày sinh: ", font=("Arial", 12))
 lb_ns.place(x=20, y=270, width=200, height=30)
-et_ns = Entry(main_GV, font=("Arial", 12))
+et_ns = Entry(chinhSua_GV, font=("Arial", 12))
 et_ns.place(x=230, y=270, width=250, height=30)
 
-lb_gt = Label(main_GV, text="Giới tính: ", font=("Arial", 12))
+lb_gt = Label(chinhSua_GV, text="Giới tính: ", font=("Arial", 12))
 lb_gt.place(x=20, y=310, width=200, height=30)
 gt = StringVar()
-Radiobutton(main_GV, text="Nam", padx=5, variable=gt, value='Nam', font=("Arial", 12)).place(x=230, y=310)
-Radiobutton(main_GV, text="Nữ", padx =10, variable=gt, value='Nữ', font=("Arial", 12)).place(x=320, y=310)
-Radiobutton(main_GV, text="Khác", padx=15, variable=gt, value='Khác', font=("Arial", 12)).place(x=400, y=310)
+Radiobutton(chinhSua_GV, text="Nam", padx=5, variable=gt, value='Nam', font=("Arial", 12)).place(x=230, y=310)
+Radiobutton(chinhSua_GV, text="Nữ", padx =10, variable=gt, value='Nữ', font=("Arial", 12)).place(x=320, y=310)
+Radiobutton(chinhSua_GV, text="Khác", padx=15, variable=gt, value='Khác', font=("Arial", 12)).place(x=400, y=310)
 
-lb_dc = Label(main_GV, text="Địa chỉ: ", font=("Arial", 12))
+lb_dc = Label(chinhSua_GV, text="Địa chỉ: ", font=("Arial", 12))
 lb_dc.place(x=20, y=350, width=200, height=30)
-et_dc = Entry(main_GV, font=("Arial", 12))
+et_dc = Entry(chinhSua_GV, font=("Arial", 12))
 et_dc.place(x=230, y=350, width=250, height=30)
 
-lb_mail = Label(main_GV, text="Email: ", font=("Arial", 12))
+lb_mail = Label(chinhSua_GV, text="Email: ", font=("Arial", 12))
 lb_mail.place(x=20, y=390, width=200, height=30)
-et_mail = Entry(main_GV, font=("Arial", 12))
+et_mail = Entry(chinhSua_GV, font=("Arial", 12))
 et_mail.place(x=230, y=390, width=250, height=30)
 
-lb_SDT = Label(main_GV, text="SĐT: ", font=("Arial", 12))
+lb_SDT = Label(chinhSua_GV, text="SĐT: ", font=("Arial", 12))
 lb_SDT.place(x=20, y=430, width=200, height=30)
-et_SDT = Entry(main_GV, font=("Arial", 12))
+et_SDT = Entry(chinhSua_GV, font=("Arial", 12))
 et_SDT.place(x=230, y=430, width=250, height=30)
 
 # Buttons
 
-btn_add = Button(main_GV, text="Thêm", width=15, font=("Arial", 12, 'bold'), command=them)
+btn_add = Button(chinhSua_GV, text="Thêm", width=15, font=("Arial", 12, 'bold'), command=them)
 btn_add.place(x=20, y=480, width=150, height=40)
 
-btn_upd = Button(main_GV, text="Sửa", width=15, font=("Arial", 12, 'bold'), command=sua)
+btn_upd = Button(chinhSua_GV, text="Sửa", width=15, font=("Arial", 12, 'bold'), command=sua)
 btn_upd.place(x=200, y=480, width=150, height=40)
 
-btn_del = Button(main_GV, text="Xóa", width=15, font=("Arial", 12, 'bold'), command=xoa)
+btn_del = Button(chinhSua_GV, text="Xóa", width=15, font=("Arial", 12, 'bold'), command=xoa)
 btn_del.place(x=380, y=480, width=150, height=40)
 
-btn_thoat = Button(main_GV, text="Thoát", width=15, font=("Arial", 12, 'bold'), command=exit)
-btn_thoat.place(x=200, y=540, width=150, height=40)
+btn_xuatEx = Button(chinhSua_GV, text="Xuất Excel", width=15, font=("Arial", 12, 'bold'), command=xuat_excel)
+btn_xuatEx.place(x=20, y=540, width=150, height=40)
+
+btn_thoat = Button(chinhSua_GV, text="Thoát", width=15, font=("Arial", 12, 'bold'), command=exit)
+btn_thoat.place(x=380, y=540, width=150, height=40)
 
 # Treeview để hiển thị dữ liệu dưới dạng bảng
-bang = ttk.Treeview(main_GV, columns=("MGV", "TenGV", "NgaySinh", "GioiTính", "DiaChỉ", "Email", "SDT"), show="headings")
+bang = ttk.Treeview(chinhSua_GV, columns=("MGV", "TenGV", "NgaySinh", "GioiTinh", "DiaChi", "Email", "SDT"), show="headings")
 bang.place(x=600, y=200, width=900, height=380)
 
 # Đặt tên cho các cột
 bang.heading("MGV", text="Mã GV")
 bang.heading("TenGV", text="Tên GV")
 bang.heading("NgaySinh", text="Ngày sinh")
-bang.heading("GioiTính", text="Giới tính")
-bang.heading("DiaChỉ", text="Địa chỉ")
+bang.heading("GioiTinh", text="Giới tính")
+bang.heading("DiaChi", text="Địa chỉ")
 bang.heading("Email", text="Email")
 bang.heading("SDT", text="SĐT")
 
@@ -374,7 +408,7 @@ bang.column("SDT", width=100)
 ht_bang()
 
 # Bật/tắt toàn màn hình
-main_GV.bind("<Escape>", manHinh())
-main_GV.attributes("-fullscreen", True)
+chinhSua_GV.bind("<Escape>", manHinh)
+chinhSua_GV.attributes("-fullscreen", True)
 
-main_GV.mainloop()
+chinhSua_GV.mainloop()
