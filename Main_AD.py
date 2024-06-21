@@ -37,11 +37,11 @@ def open_class_form():
 
 # Hàm mở form phân công (chưa triển khai)
 def open_assignment_form():
-    print("Mở form phân công")
+    window.withdraw()  # Hide the current window
+    subprocess.run(["python", 'phanconglich.py'])
+    window.deiconify()
 
-# Hàm mở form đánh giá (chưa triển khai)
-def open_evaluation_form():
-    print("Mở form đánh giá")
+
 def open_baocao():
     window.withdraw()  # Hide the current window
     subprocess.run(["python", 'form.py'])
@@ -90,8 +90,6 @@ btn_assignment.pack(fill='x', pady=10)
 btn_subject = Button(menu_frame, text="Học phần", font=("Arial", 12), width=15, height=2, command=open_subject_management)
 btn_subject.pack(fill='x', pady=10)
 
-btn_evaluation = Button(menu_frame, text="Đánh giá", font=("Arial", 12), width=15, height=2, command=open_evaluation_form)
-btn_evaluation.pack(fill='x', pady=10)
 
 btn_evaluation = Button(menu_frame, text="Thống kê và báo cáo", font=("Arial", 12), width=15, height=2,command=open_baocao)
 btn_evaluation.pack(fill='x', pady=10)
