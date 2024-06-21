@@ -184,9 +184,36 @@ class Ui_MainWindow(object):
         self.Button_thongtin.clicked.connect(self.show_thongtin)
         self.Button_danhgia.clicked.connect(self.show_danhgia)
         self.button_done.clicked.connect(self.danh_gia)
+        self.show_thongtin()
+
+    def hien_thi_thong_tin(self):
+        with open('HienThi.txt', 'r') as f:
+            masv = f.read().strip()
+
+        conn = sqlite3.connect('qlgv.db')
+        cursor = conn.cursor()
+
+        # Lấy dữ liệu từ database
+        cursor.execute(
+            """SELECT * 
+               FROM SinhVien 
+               WHERE MaSV = ? """, (masv,))
+
+        rows = cursor.fetchall()
+
+
+        self.tableWidget.setRowCount(0)  
+        for row, form in enumerate(rows):
+            self.tableWidget.insertRow(row)
+            for column, item in enumerate(form):
+                self.tableWidget.setItem(row, column, QtWidgets.QTableWidgetItem(str(item)))
+
+
+        conn.close()
 
     def show_thongtin(self):
         self.stackedWidget.setCurrentIndex(1)
+        self.hien_thi_thong_tin()
 
     def show_danhgia(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -234,10 +261,12 @@ class Ui_MainWindow(object):
         conn = sqlite3.connect('qlgv.db')
         cursor = conn.cursor()
 
-        cursor.execute('''
-                    INSERT INTO DanhGia (MaGV, MaSV, NoiDung, DiemSo, NgayDanhGia)
-                    VALUES (?, ?, ?, ?, ?)
-                ''', (magv, masv, noidung, diemso, ngaydanhgia))
+        query = '''
+                INSERT INTO DanhGia (MaGV, MaSV, NoiDung, DiemSo, NgayDanhGia)
+                VALUES (?, ?, ?, ?, ?)
+                '''
+        print(f"Executing query: {query}")
+        cursor.execute(query, (magv, masv, noidung, diemso, ngaydanhgia))
 
         conn.commit()
         conn.close()

@@ -160,7 +160,7 @@ with open('HienThi.txt', 'r') as f:
             WHERE MaGV = ? """, (ten_ht, ))
     ten = cur.fetchone()
     ten = ten[0]
-    lb_GV.config(text=ten) # Cập nhật Label
+    lb_GV.config(text=ten)
 
 # Bật/tắt toàn màn hình
 main_GV.bind("<Escape>", manHinh)

@@ -388,7 +388,7 @@ class Ui_Danhgia(object):
         self.hocphan_btn2.setText(_translate("MainWindow", "Học phần"))
         self.lophoc_btn2.setText(_translate("MainWindow", "Lớp học"))
         self.phancong_btn2.setText(_translate("MainWindow", "Phân công"))
-        self.lichhoc_btn2.setText(_translate("MainWindow", "Lịch học"))
+        self.lichhoc_btn2.setText(_translate("MainWindow", "Đánh giá"))
         self.exit_btn_2.setText(_translate("MainWindow", "Thoát"))
         self.search_input.setPlaceholderText(_translate("MainWindow", "Search..."))
         self.label_4.setText(_translate("MainWindow", "Home Page"))

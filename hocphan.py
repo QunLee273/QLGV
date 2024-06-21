@@ -468,7 +468,7 @@ def main():
         app.setStyleSheet(file.read())
 
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_Hocphan()
     ui.setupUi(MainWindow)
     MainWindow.showMaximized()
     sys.exit(app.exec())
