@@ -1,5 +1,9 @@
 import subprocess
+import sys
 from tkinter import Tk, Button, Frame
+
+from PyQt5.uic.properties import QtWidgets
+
 
 # Hàm mở form quản lý học phần (chưa triển khai)
 def open_subject_management():
@@ -96,3 +100,15 @@ btn_exit = Button(menu_frame, text="Đăng xuất và thoát", font=("Arial", 12
 btn_exit.pack(fill='x', pady=10)
 # Chạy ứng dụng
 window.mainloop()
+
+
+def main():
+    app = QtWidgets.QApplication(sys.argv)
+
+    with open("style.qss", "r") as file:
+        app.setStyleSheet(file.read())
+
+
+if __name__ == "__main__":
+    main()
+

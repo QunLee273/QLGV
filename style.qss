@@ -1,86 +1,119 @@
-/* Style for mainwindow */
-#MainWindow {
-    background-color: #2f3542; /* Màu nền của main window trong chủ đề dark */
-}
+/*= Style for mainwindow START
+  ==================================================== */
+	#MainWindow {
+		background-color: #fff;
+	}
+/*= END
+  ==================================================== */
 
-/* Style for button to change menu style */
-#change_btn {
-    padding: 5px;
-    border: none;
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    color: #fff; /* Màu chữ của button */
-}
+/*= Style for button to change menu style START
+  ==================================================== */
+	#change_btn {
+		padding: 5px;
+		border: none;
+		width: 30px;
+		height: 30px;
+	}
+/*= END
+  ==================================================== */
 
-/* Style for header widget */
-#widget {
-    background-color: #57606f; /* Màu nền của header widget */
-}
+/*= Style for header widget START
+  ==================================================== */
+	#widget {
+		background-color: #f9fafd;
+	}
+/*= END
+  ==================================================== */
 
-/* Style for menu with icon only */
-#icon_only_widget {
-    background-color: #3d4852; /* Màu nền của menu chứa icon */
-    width: 50px;
-}
+/*= Style for menu with icon only START
+  ==================================================== */
+  	/* style for widget */
+	#icon_only_widget {
+		background-color: #313a46;
+		width:50px;
+	}
 
-#icon_only_widget QPushButton, QLabel {
-    height: 50px;
-    border: none;
-    color: #ccd1d9; /* Màu chữ của các QPushButton và QLabel */
-}
+    /* style for QPushButton and QLabel */
+	#icon_only_widget QPushButton, QLabel {
+		height:50px;
+		border:none;
+		/* border-bottom: 1px solid #b0b0b0; */
+	}
 
-#icon_only_widget QPushButton:hover {
-    background-color: rgba(86, 101, 115, 0.5);
-}
+	#icon_only_widget QPushButton:hover {
+		background-color: rgba( 86, 101, 115, 0.5);
+	}
 
-/* Style for logo image */
-#logo_label_1, #logo_label_2, #logo_label_3 {
-    padding: 5px;
-    color: #fff; /* Màu chữ của logo */
-}
+	/* style for logo image */
+	#logo_label_1 {
+		padding: 5px
+	}
+/*= END
+  ==================================================== */
 
-/* Style for menu with icon and text */
-#full_menu_widget {
-    background-color: #3d4852; /* Màu nền của menu đầy đủ */
-}
+/*= Style for menu with icon and text START
+  ==================================================== */
+	/* style for widget */
+	#full_menu_widget {
+		background-color: #313a46;
+	}
 
-#full_menu_widget QPushButton {
-    border: none;
-    border-radius: 3px;
-    text-align: left;
-    padding: 8px 0 8px 15px;
-    color: #ccd1d9; /* Màu chữ của QPushButton */
-}
+	/* style for QPushButton */
+	#full_menu_widget QPushButton {
+		border:none;
+		border-radius: 3px;
+		text-align: left;
+		padding: 8px 0 8px 15px;
+		color: #788596;
+	}
 
-#full_menu_widget QPushButton:hover {
-    background-color: rgba(86, 101, 115, 0.5);
-}
+	#full_menu_widget QPushButton:hover {
+		background-color: rgba( 86, 101, 115, 0.5);
+	}
 
-#full_menu_widget QPushButton:checked {
-    color: #fff; /* Màu chữ của QPushButton khi checked */
-}
+	#full_menu_widget QPushButton:checked {
+		color: #fff;
+	}
 
-/* Style for search button */
-#search_btn {
-    border: none;
-    color: #ccd1d9; /* Màu chữ của search button */
-}
+	/* style for logo image */
+	#logo_label_2 {
+		padding: 5px;
+		color: #fff;
+	}
 
-/* Style for search input */
-#search_input {
-    border: none;
-    padding: 5px 10px;
-    background-color: #4b5963; /* Màu nền của search input */
-    color: #ccd1d9; /* Màu chữ của search input */
-}
+	/* style for APP title */
+	#logo_label_3 {
+		padding-right: 10px;
+		color: #fff;
+	}
+/*= END
+  ==================================================== */
 
-#search_input:focus {
-    background-color: #70b9fe; /* Màu nền khi search input được focus */
-}
+/*= Style for search button START
+  ==================================================== */
+	#search_btn {
+		border: none;
+	}
+/*= END
+  ==================================================== */
 
-/* Style for user information button */
-#user_btn {
-    border: none;
-    color: #ccd1d9; /* Màu chữ của user information button */
-}
+/*= Style for search input START
+  ==================================================== */
+	#search_input {
+		border: none;
+		padding: 5px 10px;
+	}
+
+	#search_input:focus {
+		background-color: #70B9FE;
+	}
+/*= END
+  ==================================================== */
+
+/*= Style for user information button START
+  ==================================================== */
+	#user_btn {
+		border: none;
+	}
+/*= END
+  ==================================================== */
