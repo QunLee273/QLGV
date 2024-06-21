@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d71f07e-bb9e-480d-aea0-4eda99db62da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1ea1b188-7ab1-482d-834f-eec1ebda8fbc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/1ea1b188-7ab1-482d-834f-eec1ebda8fbc/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/98c6aa1d-9867-4eda-a7d5-712bfc26adbd.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/98c6aa1d-9867-4eda-a7d5-712bfc26adbd/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/df30142e-c693-4256-8061-8d7310a865db.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/df30142e-c693-4256-8061-8d7310a865db/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Quân/DanhSachGiangVien.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Quân/HienThi.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Quân/main_GV.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Quân/createDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/createDB.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Quân/infoGV.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quân/infoGV.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cuong/Login.py" beforeDir="false" afterPath="$PROJECT_DIR$/cuong/Login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quân/main_GV.py" beforeDir="false" afterPath="$PROJECT_DIR$/Quân/main_GV.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +283,7 @@
       <workItem from="1718779238935" duration="17659000" />
       <workItem from="1718843368386" duration="7820000" />
       <workItem from="1718900448243" duration="2627000" />
-      <workItem from="1718951724459" duration="14126000" />
+      <workItem from="1718951724459" duration="19591000" />
     </task>
     <servers />
   </component>
@@ -310,7 +299,7 @@
     <SUITE FILE_PATH="coverage/BTL_QLGV$createDB__1_.coverage" NAME="createDB (1) Coverage Results" MODIFIED="1718786079658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BTL_QLGV$testCode.coverage" NAME="testCode Coverage Results" MODIFIED="1718780933188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/admin" />
     <SUITE FILE_PATH="coverage/BTL_QLGV$ThemLop.coverage" NAME="ThemLop Coverage Results" MODIFIED="1718953033775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cuong" />
-    <SUITE FILE_PATH="coverage/BTL_QLGV$main_GV.coverage" NAME="main_GV Coverage Results" MODIFIED="1718965467732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Quân" />
+    <SUITE FILE_PATH="coverage/BTL_QLGV$main_GV.coverage" NAME="main_GV Coverage Results" MODIFIED="1718971327926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Quân" />
     <SUITE FILE_PATH="coverage/BTL_QLGV$main.coverage" NAME="main Coverage Results" MODIFIED="1717984377742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
