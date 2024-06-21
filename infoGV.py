@@ -3,15 +3,18 @@ from tkinter import *
 import sqlite3
 from tkinter import ttk
 from tkinter import messagebox
+import re
 
 main_GV = Tk()
 main_GV.title("Quản lý giảng viên")
-main_GV.geometry("1920x1080")
 
 # Kết nối DB
 conn = sqlite3.connect("qlgv.db")
 cur = conn.cursor()
 
+def manHinh():
+    main_GV.attributes("-fullscreen", not main_GV.attributes("-fullscreen"))
+    main_GV.geometry("1280x720")
 
 def ht_bang():
     # Xóa dữ liệu cũ trong Treeview
@@ -26,12 +29,40 @@ def ht_bang():
     for row in rows:
         bang.insert("", END, values=row)
 
-def kT_NgaySinh(date):
-    try:
-        datetime.strptime(date, '%Y-%m-%d')
-        return True
-    except ValueError:
-        return False
+
+def timKiem(event):
+    tk = et_tk.get()  # Lấy giá trị từ Entry
+
+    if tk == "":
+        ht_bang()  # Hiển thị bảng khi không nhập gì
+    else:
+        # Xóa dữ liệu cũ trong Treeview
+        for row in bang.get_children():
+            bang.delete(row)
+
+        # Tạo lệnh SQL để tìm kiếm
+        sql = """SELECT * FROM GiangVien 
+                WHERE MaGV LIKE ? OR HoTen LIKE ? OR NgaySinh LIKE ? OR GioiTinh LIKE ? OR 
+                DiaChi LIKE ? OR Email LIKE ? OR SoDienThoai LIKE ?
+            """
+
+        # Tạo tuple (bất biến) chứa các giá trị tìm kiếm cho từng cột
+        param = tuple(f"%{tk}%" for _ in range(7))
+
+        # Truy vấn dữ liệu từ CSDL
+        cur.execute(sql, param)
+
+        # Lấy giá trị của tất cả các hàng
+        rows = cur.fetchall()
+
+        if rows:
+            # Điền dữ liệu vào Treeview
+            for row in rows:
+                bang.insert("", "end", values=row)
+        else:
+            messagebox.showinfo("Thông báo", "Không tìm thấy kết quả")
+            et_tk.delete(0, END) # Xóa dữ liệu Entry tìm kiếm
+            ht_bang() # Hiển thị lại bảng
 
 def them():
     # Lấy dữ liệu từ các Entry và Radiobutton
@@ -43,12 +74,35 @@ def them():
     mail = et_mail.get()
     sdt = et_SDT.get()
 
-    # Kiểm tra Ngày sinh đúng dịnh dạng không
-    kT_NgaySinh(nSinh)
+    hoi = messagebox.askquestion("Thông báo", "Bạn có chắc muốn thêm không?", type=messagebox.YESNO)
+    if hoi == "no":
+        return
 
     # Kiểm tra các trường thông tin có được điền đầy đủ không
     if mgv == '' or ten == '' or nSinh == '' or gTinh == '' or dC == '' or mail == '' or sdt == '':
         messagebox.showerror("Lỗi", "Vui lòng nhập đầy đủ thông tin")
+        return
+
+    mess = ""
+
+    # Kiểm tra ngày sinh định dạng 'yyyy-mm-dd'
+    try:
+        datetime.strptime(nSinh, '%Y-%m-%d')
+    except ValueError:
+        mess += "Ngày sinh không hợp lệ. Vui lòng nhập theo định dạng yyyy-mm-dd.\n"
+
+    # Kiểm tra định dạng email
+    kt_Mail = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    if not re.match(kt_Mail, mail):
+        mess += "Địa chỉ email không hợp lệ.\n"
+
+    # Kiểm tra định dạng số điện thoại
+    if not sdt.isdigit() or len(sdt) < 10 or len(sdt) > 15:
+        mess += "Số điện thoại không hợp lệ.\n"
+
+    # Thông báo kiểm tra
+    if mess != '':
+        messagebox.showerror("Lỗi", mess)
         return
 
     try:
@@ -108,9 +162,35 @@ def sua():
     item = bang.item(chon, 'values')
     mgv_cu = item[0]  # Mã GV cũ của giảng viên
 
+    hoi = messagebox.askquestion("Thông báo", "Bạn có chắc muốn sửa không?", type=messagebox.YESNO)
+    if hoi == "no":
+        return
+
     # Kiểm tra xem người dùng đã nhập thông tin cần sửa chưa
     if not (mgv or ten or nSinh or gTinh or dC or mail or sdt):
         messagebox.showerror("Lỗi", "Vui lòng nhập ít nhất một trường thông tin cần sửa.")
+        return
+
+    mess = ""
+
+    # Kiểm tra ngày sinh định dạng 'yyyy-mm-dd'
+    try:
+        datetime.strptime(nSinh, '%Y-%m-%d')
+    except ValueError:
+        mess += "Ngày sinh không hợp lệ. Vui lòng nhập theo định dạng yyyy-mm-dd.\n"
+
+    # Kiểm tra định dạng email
+    kt_Mail = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    if not re.match(kt_Mail, mail):
+        mess += "Địa chỉ email không hợp lệ.\n"
+
+    # Kiểm tra định dạng số điện thoại
+    if not sdt.isdigit() or len(sdt) < 10 or len(sdt) > 15:
+        mess += "Số điện thoại không hợp lệ.\n"
+
+    # Thông báo kiểm tra
+    if mess != '':
+        messagebox.showerror("Lỗi", mess)
         return
 
     try:
@@ -174,73 +254,103 @@ def sua():
         messagebox.showerror("Lỗi", f"Lỗi: {str(e)}")
 
 
+def xoa():
+    # Kiểm tra xem người dùng đã chọn giảng viên nào để sửa chưa
+    chon = bang.focus()  # Lấy item được chọn trong Treeview
+    if not chon:
+        messagebox.showerror("Lỗi", "Vui lòng chọn giảng viên cần xóa trong danh sách.")
+        return
+
+    # Lấy thông tin của giảng viên được chọn từ Treeview
+    item = bang.item(chon, 'values')
+    mgv = item[0]  # Mã GV của giảng viên
+
+    try:
+        hoiXoa = messagebox.askquestion("Chú ý", f"Bạn có chắc xóa giảng viên {mgv}", type=messagebox.YESNO)
+        if hoiXoa == 'yes':
+            # Xóa dữ liệu trong SQL
+            cur.execute("DELETE FROM GiangVien WHERE MaGV=?", (mgv,))
+            conn.commit()
+
+            messagebox.showinfo("Thông báo", "Xóa thành công")
+
+            # Hiển thị lại bảng
+            ht_bang()
+    except Exception as e:
+        # Hiển thị thông báo khi có lỗi xảy ra
+        messagebox.showerror("Lỗi", f"Lỗi: {str(e)}")
+
+
 
 ## Tạo form
 #Label, Entry
 
 tieuDe = Label(main_GV, text="Quản lý giảng viên", font=("Arial", 24, 'bold'), justify="center")
-tieuDe.grid(column=4, row=0, padx=15, pady=15)
+tieuDe.place(x=600, y=20)
 
-muc1 = Label(main_GV, text="Nhập thông tin:", font=("Arial", 18, 'bold'), justify="left")
-muc1.grid(row=1, column=1, padx=5, pady=5)
+muc1 = Label(main_GV, text="Nhập thông tin:", font=("Arial", 18, 'bold'))
+muc1.place(x=40, y=140)
 
-et_tk = Entry(main_GV, width=50)
-et_tk.grid(row=1, column=4, padx=5, pady=5, columnspan=2)
+lb_tk = Label(main_GV, text="Tìm kiếm: ", font=("Arial", 12))
+lb_tk.place(x=780, y=155, width=200, height=30)
+et_tk = Entry(main_GV, bd=2, relief=SOLID)
+et_tk.bind("<KeyRelease>", timKiem)
+et_tk.place(x=930, y=155, width=250, height=30)
 
-lb_mgv = Label(main_GV, text="Mã GV: ")
-lb_mgv.grid(row=2, column=0, padx=5, pady=5)
-et_mgv = Entry(main_GV, width=30)
-et_mgv.grid(row=2, column=1, padx=5, pady=5)
+lb_mgv = Label(main_GV, text="Mã GV: ", font=("Arial", 12))
+lb_mgv.place(x=20, y=190, width=200, height=30)
+et_mgv = Entry(main_GV, font=("Arial", 12))
+et_mgv.place(x=230, y=190, width=250, height=30)
 
-lb_tenGV = Label(main_GV, text="Tên GV: ")
-lb_tenGV.grid(row=3, column=0, padx=5, pady=5)
-et_tenGV = Entry(main_GV, width=30)
-et_tenGV.grid(row=3, column=1, padx=5, pady=5)
+lb_tenGV = Label(main_GV, text="Tên GV: ", font=("Arial", 12))
+lb_tenGV.place(x=20, y=230, width=200, height=30)
+et_tenGV = Entry(main_GV, font=("Arial", 12))
+et_tenGV.place(x=230, y=230, width=250, height=30)
 
-lb_ns = Label(main_GV, text="Ngày sinh(yyyy-mm-dd): ")
-lb_ns.grid(row=4, column=0, padx=5, pady=5)
-et_ns = Entry(main_GV, width=30)
-et_ns.grid(row=4, column=1, padx=5, pady=5)
+lb_ns = Label(main_GV, text="Ngày sinh: ", font=("Arial", 12))
+lb_ns.place(x=20, y=270, width=200, height=30)
+et_ns = Entry(main_GV, font=("Arial", 12))
+et_ns.place(x=230, y=270, width=250, height=30)
 
-lb_gt = Label(main_GV, text="Giới tính: ")
-lb_gt.grid(row=5, column=0, padx=5, pady=5)
+lb_gt = Label(main_GV, text="Giới tính: ", font=("Arial", 12))
+lb_gt.place(x=20, y=310, width=200, height=30)
 gt = StringVar()
-Radiobutton(main_GV, text="Nam", padx=5, variable=gt, value='Nam').place(x=170, y=230)
-Radiobutton(main_GV, text="Nữ", padx =10, variable=gt, value='Nữ').place(x=230, y=230)
-Radiobutton(main_GV, text="Khác", padx=15, variable=gt, value='Khác').place(x=290, y=230)
+Radiobutton(main_GV, text="Nam", padx=5, variable=gt, value='Nam', font=("Arial", 12)).place(x=230, y=310)
+Radiobutton(main_GV, text="Nữ", padx =10, variable=gt, value='Nữ', font=("Arial", 12)).place(x=320, y=310)
+Radiobutton(main_GV, text="Khác", padx=15, variable=gt, value='Khác', font=("Arial", 12)).place(x=400, y=310)
 
-lb_dc = Label(main_GV, text="Địa chỉ: ")
-lb_dc.grid(row=6, column=0, padx=5, pady=5)
-et_dc = Entry(main_GV, width=30)
-et_dc.grid(row=6, column=1, padx=5, pady=5)
+lb_dc = Label(main_GV, text="Địa chỉ: ", font=("Arial", 12))
+lb_dc.place(x=20, y=350, width=200, height=30)
+et_dc = Entry(main_GV, font=("Arial", 12))
+et_dc.place(x=230, y=350, width=250, height=30)
 
-lb_mail = Label(main_GV, text="Email: ")
-lb_mail.grid(row=7, column=0, padx=5, pady=5)
-et_mail = Entry(main_GV, width=30)
-et_mail.grid(row=7, column=1, padx=5, pady=5)
+lb_mail = Label(main_GV, text="Email: ", font=("Arial", 12))
+lb_mail.place(x=20, y=390, width=200, height=30)
+et_mail = Entry(main_GV, font=("Arial", 12))
+et_mail.place(x=230, y=390, width=250, height=30)
 
-lb_SDT = Label(main_GV, text="SĐT: ")
-lb_SDT.grid(row=8, column=0, padx=5, pady=5)
-et_SDT = Entry(main_GV, width=30)
-et_SDT.grid(row=8, column=1, padx=5, pady=5)
+lb_SDT = Label(main_GV, text="SĐT: ", font=("Arial", 12))
+lb_SDT.place(x=20, y=430, width=200, height=30)
+et_SDT = Entry(main_GV, font=("Arial", 12))
+et_SDT.place(x=230, y=430, width=250, height=30)
 
-# Button
-
-btn_tk = Button(main_GV, text="Tìm kiếm:")
-btn_tk.grid(row=1, column=5, padx=5, pady=5)
+# Buttons
 
 btn_add = Button(main_GV, text="Thêm", width=15, font=("Arial", 12, 'bold'), command=them)
-btn_add.grid(row=9, column=0, padx=5, pady=5)
+btn_add.place(x=20, y=480, width=150, height=40)
 
 btn_upd = Button(main_GV, text="Sửa", width=15, font=("Arial", 12, 'bold'), command=sua)
-btn_upd.grid(row=9, column=1, padx=5, pady=5)
+btn_upd.place(x=200, y=480, width=150, height=40)
 
-btn_del = Button(main_GV, text="Xóa", width=15, font=("Arial", 12, 'bold'))
-btn_del.grid(row=9, column=3, padx=5, pady=5)
+btn_del = Button(main_GV, text="Xóa", width=15, font=("Arial", 12, 'bold'), command=xoa)
+btn_del.place(x=380, y=480, width=150, height=40)
+
+btn_thoat = Button(main_GV, text="Thoát", width=15, font=("Arial", 12, 'bold'), command=exit)
+btn_thoat.place(x=200, y=540, width=150, height=40)
 
 # Treeview để hiển thị dữ liệu dưới dạng bảng
 bang = ttk.Treeview(main_GV, columns=("MGV", "TenGV", "NgaySinh", "GioiTính", "DiaChỉ", "Email", "SDT"), show="headings")
-bang.grid(row=2, column=4, padx=10, pady=10, rowspan=7, columnspan=4)
+bang.place(x=600, y=200, width=900, height=380)
 
 # Đặt tên cho các cột
 bang.heading("MGV", text="Mã GV")
@@ -262,5 +372,9 @@ bang.column("SDT", width=100)
 
 # Hiển thị dữ liệu vào bảng
 ht_bang()
+
+# Bật/tắt toàn màn hình
+main_GV.bind("<Escape>", manHinh())
+main_GV.attributes("-fullscreen", True)
 
 main_GV.mainloop()
