@@ -1,6 +1,9 @@
+import sys
 from tkinter import *
 import sqlite3
 from tkinter import messagebox, ttk
+
+from PyQt5.uic.properties import QtWidgets
 
 main_GV = Tk()
 main_GV.title("Giảng viên")
@@ -160,7 +163,7 @@ with open('HienThi.txt', 'r') as f:
             WHERE MaGV = ? """, (ten_ht, ))
     ten = cur.fetchone()
     ten = ten[0]
-    lb_GV.config(text=ten) # Cập nhật Label
+    lb_GV.config(text=ten)
 
 # Bật/tắt toàn màn hình
 main_GV.bind("<Escape>", manHinh)
