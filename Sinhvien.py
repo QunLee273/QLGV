@@ -265,7 +265,7 @@ class Ui_MainWindow(object):
                 INSERT INTO DanhGia (MaGV, MaSV, NoiDung, DiemSo, NgayDanhGia)
                 VALUES (?, ?, ?, ?, ?)
                 '''
-        print(f"Executing query: {query}")
+        
         cursor.execute(query, (magv, masv, noidung, diemso, ngaydanhgia))
 
         conn.commit()

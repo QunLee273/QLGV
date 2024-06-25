@@ -67,8 +67,8 @@ def open_login_form():
            command=lambda: login_user(username_var, password_var),
            bg='#4caf50', fg='#ffffff').grid(row=2, column=0, columnspan=2, pady=10)
 
-    Button(frame, text="Đăng ký", font=("Arial", 14),
-           command=open_register_form,
+    Button(frame, text="thoát", font=("Arial", 14),
+           command=exit,
            bg='#2196f3', fg='#ffffff').grid(row=2, column=2, columnspan=2, pady=10)
 
     login_window.mainloop()

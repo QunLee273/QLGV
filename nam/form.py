@@ -378,6 +378,9 @@ class Ui_formchinh(object):
         self.exit_btn_1.clicked.connect(MainWindow.close) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.menu_btn.click()
+        self.menu_btn.click()
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
