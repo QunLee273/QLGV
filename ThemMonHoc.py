@@ -1,5 +1,6 @@
 import sqlite3
-from tkinter import Tk, Label, Entry, Button, StringVar, messagebox, Frame
+from tkinter import *
+from tkinter import messagebox
 
 # Hàm để tạo cơ sở dữ liệu và bảng HocPhan nếu chưa tồn tại
 def create_database():
