@@ -1,31 +1,15 @@
 import sqlite3
-from tkinter import Tk, Label, Entry, Button, StringVar, messagebox, Frame
+from tkinter import Tk, Label, Entry, Button, StringVar, messagebox, END
+from tkinter import ttk
 
-# Hàm để tạo cơ sở dữ liệu và bảng HocPhan nếu chưa tồn tại
-def create_database():
-    with sqlite3.connect("qlgv.db") as db:
-        cursor = db.cursor()
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS HocPhan (
-                MaHP TEXT PRIMARY KEY,
-                TenHP TEXT NOT NULL,
-                SoTinChi INTEGER NOT NULL
-            )
-        ''')
-        db.commit()
+def them_mon_hoc():
+    id_monhoc = id_monhoc_var.get()
+    ten_monhoc = ten_monhoc_var.get()
+    tinchi = tinchi_var.get()
 
-# Gọi hàm tạo cơ sở dữ liệu
-create_database()
-
-# Hàm để thêm môn học vào cơ sở dữ liệu
-def add_subject():
-    subject_id = subject_id_var.get()
-    subject_name = subject_name_var.get()
-    credits = credits_var.get()
-
-    if subject_id and subject_name and credits:
+    if id_monhoc and ten_monhoc and tinchi:
         try:
-            credits = int(credits)
+            tinchi = int(tinchi)
         except ValueError:
             messagebox.showerror("Lỗi", "Số tín chỉ phải là một số nguyên")
             return
@@ -36,53 +20,136 @@ def add_subject():
                 cursor.execute('''
                     INSERT INTO HocPhan (MaHP, TenHP, SoTinChi)
                     VALUES (?, ?, ?)
-                ''', (subject_id, subject_name, credits))
+                ''', (id_monhoc, ten_monhoc, tinchi))
                 db.commit()
                 messagebox.showinfo("Thành công", "Môn học đã được thêm")
-                clear_fields()
+                xoa_noi_dung()
+                hien_thi_monhoc()
             except sqlite3.IntegrityError:
                 messagebox.showerror("Lỗi", "Mã học phần đã tồn tại")
     else:
-        messagebox.showerror("Lỗi", "Tất cả các trường là bắt buộc")
+        messagebox.showerror("Lỗi", "Tất cả các ô phải được nhập")
 
-# Hàm để xóa dữ liệu đã nhập từ các ô nhập liệu
-def clear_fields():
-    subject_id_var.set("")
-    subject_name_var.set("")
-    credits_var.set("")
+def sua_mon_hoc():
+    id_monhoc = id_monhoc_var.get()
+    ten_monhoc = ten_monhoc_var.get()
+    tinchi = tinchi_var.get()
 
-# Hàm để đóng chế độ toàn màn hình khi nhấn phím Escape
+    if id_monhoc and ten_monhoc and tinchi:
+        try:
+            tinchi = int(tinchi)
+        except ValueError:
+            messagebox.showerror("Lỗi", "Số tín chỉ phải là một số nguyên")
+            return
+
+        with sqlite3.connect("qlgv.db") as db:
+            cursor = db.cursor()
+            cursor.execute('''
+                UPDATE HocPhan
+                SET TenHP = ?, SoTinChi = ?
+                WHERE MaHP = ?
+            ''', (ten_monhoc, tinchi, id_monhoc))
+            db.commit()
+            messagebox.showinfo("Thành công", "Môn học đã được cập nhật")
+            xoa_noi_dung()
+            hien_thi_monhoc()
+    else:
+        messagebox.showerror("Lỗi", "Tất cả các ô phải được nhập")
+
+def xoa_mon_hoc():
+    id_monhoc = id_monhoc_var.get()
+
+    if id_monhoc:
+        with sqlite3.connect("qlgv.db") as db:
+            cursor = db.cursor()
+            cursor.execute('''
+                DELETE FROM HocPhan
+                WHERE MaHP = ?
+            ''', (id_monhoc,))
+            db.commit()
+            messagebox.showinfo("Thành công", "Môn học đã được xóa")
+            xoa_noi_dung()
+            hien_thi_monhoc()
+    else:
+        messagebox.showerror("Lỗi", "Mã học phần là bắt buộc")
+
+def tim_kiem_monhoc():
+    timkiem = timkiem_var.get()
+    for row in monhoc_treeview.get_children():
+        monhoc_treeview.delete(row)
+    with sqlite3.connect("qlgv.db") as db:
+        cursor = db.cursor()
+        cursor.execute('''
+            SELECT * FROM HocPhan WHERE
+            MaHP LIKE ? OR
+            TenHP LIKE ? OR
+            CAST(SoTinChi AS TEXT) LIKE ?
+        ''', ('%' + timkiem + '%', '%' + timkiem + '%', '%' + timkiem + '%'))
+        for row in cursor.fetchall():
+            monhoc_treeview.insert("", END, values=row)
+
+def hien_thi_monhoc():
+    for row in monhoc_treeview.get_children():
+        monhoc_treeview.delete(row)
+    with sqlite3.connect("qlgv.db") as db:
+        cursor = db.cursor()
+        cursor.execute('SELECT * FROM HocPhan')
+        for row in cursor.fetchall():
+            monhoc_treeview.insert("", END, values=row)
+
+def xoa_noi_dung():
+    id_monhoc_var.set("")
+    ten_monhoc_var.set("")
+    tinchi_var.set("")
+
 def close_fullscreen(event=None):
     window.attributes("-fullscreen", False)
 
 # Tạo cửa sổ chính và cấu hình giao diện
 window = Tk()
-window.title("Thêm môn học")
+window.title("Quản lý học phần")
 window.attributes("-fullscreen", True)
 window.bind("<Escape>", close_fullscreen)
 window.configure(bg='#f0f0f0')
 
 # Biến lưu trữ giá trị nhập vào
-subject_id_var = StringVar()
-subject_name_var = StringVar()
-credits_var = StringVar()
-
-# Tạo Frame để nhóm các widget và căn chỉnh giao diện
-frame = Frame(window, bg='#ffffff', padx=20, pady=20)
-frame.place(relx=0.5, rely=0.5, anchor='center')
+id_monhoc_var = StringVar()
+ten_monhoc_var = StringVar()
+tinchi_var = StringVar()
+timkiem_var = StringVar()
 
 # Tạo các nhãn và ô nhập liệu
-Label(frame, text="Mã học phần", font=("Arial", 16), bg='#ffffff').grid(row=0, column=0, pady=10, sticky='w')
-Entry(frame, textvariable=subject_id_var, font=("Arial", 16)).grid(row=0, column=1, pady=10)
+Label(window, text="Quản lý môn học", font=("Arial", 20)).place(x=600, y=50, width=550, height=35)
 
-Label(frame, text="Tên học phần", font=("Arial", 16), bg='#ffffff').grid(row=1, column=0, pady=10, sticky='w')
-Entry(frame, textvariable=subject_name_var, font=("Arial", 16)).grid(row=1, column=1, pady=10)
+Label(window, text="Mã học phần", font=("Arial", 12)).place(x=20, y=200, width=150, height=25)
+Entry(window, textvariable=id_monhoc_var, font=("Arial", 12)).place(x=180, y=200, width=200, height=25)
 
-Label(frame, text="Số tín chỉ", font=("Arial", 16), bg='#ffffff').grid(row=2, column=0, pady=10, sticky='w')
-Entry(frame, textvariable=credits_var, font=("Arial", 16)).grid(row=2, column=1, pady=10)
+Label(window, text="Tên học phần", font=("Arial", 12)).place(x=20, y=240, width=150, height=25)
+Entry(window, textvariable=ten_monhoc_var, font=("Arial", 12)).place(x=180, y=240, width=200, height=25)
+
+Label(window, text="Số tín chỉ", font=("Arial", 12)).place(x=20, y=280, width=150, height=25)
+Entry(window, textvariable=tinchi_var, font=("Arial", 12)).place(x=180, y=280, width=200, height=25)
+
 # Tạo nút
-Button(frame, text="Thêm môn học", font=("Arial", 16), command=add_subject, bg='#4caf50', fg='#ffffff').grid(row=3, column=0, pady=20)
-Button(frame, text="Xóa", font=("Arial", 16), command=clear_fields, bg='#f44336', fg='#ffffff').grid(row=3, column=1, pady=20)
-Button(frame, text="quay lại", font=("Arial", 16), command=exit, bg='#5662f6', fg='#ffffff').grid(row=3, column=2, pady=20)
+Button(window, text="Thêm", font=("Arial", 12), command=them_mon_hoc).place(x=20, y=340, width=100, height=25)
+Button(window, text="Sửa", font=("Arial", 12), command=sua_mon_hoc).place(x=140, y=340, width=100, height=25)
+Button(window, text="Xóa", font=("Arial", 12), command=xoa_mon_hoc).place(x=260, y=340, width=100, height=25)
+
+# Tìm kiếm
+Entry(window, textvariable=timkiem_var, font=("Arial", 12)).place(x=620, y=150, width=550, height=25)
+Button(window, text="Tìm kiếm", font=("Arial", 12), command=tim_kiem_monhoc).place(x=1200, y=150, width=100, height=25)
+
+# Danh sách môn học
+columns = ("MaHP", "TenHP", "SoTinChi")
+monhoc_treeview = ttk.Treeview(window, columns=columns, show="headings", selectmode="browse")
+monhoc_treeview.heading("MaHP", text="Mã học phần")
+monhoc_treeview.heading("TenHP", text="Tên học phần")
+monhoc_treeview.heading("SoTinChi", text="Số tín chỉ")
+monhoc_treeview.place(x=420, y=200, width=1000, height=500)
+
+# Nút thoát
+Button(window, text="Thoát", font=("Arial", 12), command=window.quit).place(x=1350, y=750, width=80, height=25)
+
+hien_thi_monhoc()
 
 window.mainloop()
