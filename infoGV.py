@@ -175,20 +175,23 @@ def sua():
 
     mess = ""
 
-    # Kiểm tra ngày sinh định dạng 'yyyy-mm-dd'
-    try:
-        datetime.strptime(nSinh, '%Y-%m-%d')
-    except ValueError:
-        mess += "Ngày sinh không hợp lệ. Vui lòng nhập theo định dạng yyyy-mm-dd.\n"
+    if nSinh:
+        # Kiểm tra ngày sinh định dạng 'yyyy-mm-dd'
+        try:
+            datetime.strptime(nSinh, '%Y-%m-%d')
+        except ValueError:
+            mess += "Ngày sinh không hợp lệ. Vui lòng nhập theo định dạng yyyy-mm-dd.\n"
 
-    # Kiểm tra định dạng email
-    kt_Mail = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
-    if not re.match(kt_Mail, mail):
-        mess += "Địa chỉ email không hợp lệ.\n"
+    if mail:
+        # Kiểm tra định dạng email
+        kt_Mail = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+        if not re.match(kt_Mail, mail):
+            mess += "Địa chỉ email không hợp lệ.\n"
 
-    # Kiểm tra định dạng số điện thoại
-    if not sdt.isdigit() or len(sdt) < 10 or len(sdt) > 15:
-        mess += "Số điện thoại không hợp lệ.\n"
+    if sdt:
+        # Kiểm tra định dạng số điện thoại
+        if not sdt.isdigit() or len(sdt) < 10 or len(sdt) > 15:
+            mess += "Số điện thoại không hợp lệ.\n"
 
     # Thông báo kiểm tra
     if mess != '':

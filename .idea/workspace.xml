@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d71f07e-bb9e-480d-aea0-4eda99db62da" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/qlgv.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/test_inforGV.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d6989f0c-9ccb-40b1-b5c2-4f56eb3b7832.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d6989f0c-9ccb-40b1-b5c2-4f56eb3b7832.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ThemMonHoc.py" beforeDir="false" afterPath="$PROJECT_DIR$/ThemMonHoc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/createDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/createDB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_GV.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_GV.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infoGV.py" beforeDir="false" afterPath="$PROJECT_DIR$/infoGV.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qlgv.db" beforeDir="false" afterPath="$PROJECT_DIR$/qlgv.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,61 +39,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.ThemLop.executor&quot;: &quot;Run&quot;,
-    &quot;Python.createDB (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.createDB.executor&quot;: &quot;Run&quot;,
-    &quot;Python.danhgia.executor&quot;: &quot;Run&quot;,
-    &quot;Python.infoGV (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.infoGV.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main_GV.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testCode (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.testCode.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/pythoncode/BTL_QLGV&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python tests.Python tests for test_inforGV.test_all.executor": "Run",
+    "Python tests.Python tests for test_inforGV.test_all.test_them.executor": "Run",
+    "Python tests.Python tests in test_inforGV.py.executor": "Run",
+    "Python.ThemLop.executor": "Run",
+    "Python.createDB (1).executor": "Run",
+    "Python.createDB.executor": "Run",
+    "Python.danhgia.executor": "Run",
+    "Python.infoGV (1).executor": "Run",
+    "Python.infoGV.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.main_GV.executor": "Run",
+    "Python.testCode (1).executor": "Run",
+    "Python.testCode.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "E:/pythoncode/BTL_QLGV/Source",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\pythoncode\BTL_QLGV\Source" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\pythoncode\BTL_QLGV\cuong" />
       <recent name="E:\pythoncode\BTL_QLGV" />
       <recent name="E:\pythoncode\BTL_QLGV\Quân" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.createDB">
-    <configuration name="ThemLop" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BTL_QLGV" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cuong" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cuong/ThemLop.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Python tests in test_inforGV.py">
     <configuration name="createDB" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BTL_QLGV" />
       <option name="ENV_FILES" value="" />
@@ -114,52 +100,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="danhgia" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BTL_QLGV" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/nam" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nam/danhgia.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="infoGV (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BTL_QLGV" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Quân" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Quân/infoGV.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="infoGV" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BTL_QLGV" />
       <option name="ENV_FILES" value="" />
@@ -174,7 +114,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\pythoncode\BTL_QLGV\Quân\infoGV.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/infoGV.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -229,36 +169,61 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main_GV" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_inforGV.test_all" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="BTL_QLGV" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Quân" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Source" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Quân/main_GV.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_inforGV.test_all&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_inforGV.test_all.test_them" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="BTL_QLGV" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Source" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_inforGV.test_all.test_them&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_inforGV.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="BTL_QLGV" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Source" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/Source/test_inforGV.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests in test_inforGV.py" />
+        <item itemvalue="Python tests.Python tests for test_inforGV.test_all" />
+        <item itemvalue="Python tests.Python tests for test_inforGV.test_all.test_them" />
+        <item itemvalue="Python.infoGV" />
         <item itemvalue="Python.createDB" />
-        <item itemvalue="Python.infoGV (1)" />
-        <item itemvalue="Python.main_GV" />
-        <item itemvalue="Python.danhgia" />
-        <item itemvalue="Python.ThemLop" />
       </list>
     </recent_temporary>
   </component>
@@ -289,18 +254,32 @@
       <workItem from="1719389346631" duration="1450000" />
       <workItem from="1720107005492" duration="5962000" />
       <workItem from="1720113371773" duration="2439000" />
+      <workItem from="1720448412518" duration="2894000" />
+      <workItem from="1720453455495" duration="3922000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BTL_QLGV$danhgia.coverage" NAME="danhgia Coverage Results" MODIFIED="1718953739032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nam" />
     <SUITE FILE_PATH="coverage/BTL_QLGV$infoGV__1_.coverage" NAME="infoGV (1) Coverage Results" MODIFIED="1718974613702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Quân" />
     <SUITE FILE_PATH="coverage/BTL_QLGV$createDB.coverage" NAME="createDB Coverage Results" MODIFIED="1718975393280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/BTL_QLGV$infoGV.coverage" NAME="infoGV Coverage Results" MODIFIED="1718780501587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/admin" />
+    <SUITE FILE_PATH="coverage/BTL_QLGV$.coverage" NAME=" Coverage Results" MODIFIED="1720457158585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Source" />
     <SUITE FILE_PATH="coverage/BTL_QLGV$testCode__1_.coverage" NAME="testCode (1) Coverage Results" MODIFIED="1718850858390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BTL_QLGV$infoGV.coverage" NAME="infoGV Coverage Results" MODIFIED="1720456236087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BTL_QLGV$createDB__1_.coverage" NAME="createDB (1) Coverage Results" MODIFIED="1718786079658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BTL_QLGV$testCode.coverage" NAME="testCode Coverage Results" MODIFIED="1718780933188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/admin" />
     <SUITE FILE_PATH="coverage/BTL_QLGV$ThemLop.coverage" NAME="ThemLop Coverage Results" MODIFIED="1718953033775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cuong" />
