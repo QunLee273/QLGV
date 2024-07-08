@@ -373,6 +373,7 @@ class Ui_Hocphan(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         MainWindow.showMaximized()
+        self.menu_btn.click()
 
         self.search_input.textChanged.connect(self.search_database)
         self.btn_xuat.clicked.connect(self.export_table_to_excel)

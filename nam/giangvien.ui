@@ -567,9 +567,9 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>5</number>
+          <number>1</number>
          </property>
-         <widget class="QWidget" name="page">
+         <widget class="QWidget" name="home">
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="0" column="0">
             <widget class="QLabel" name="label_4">
@@ -579,7 +579,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Home Page</string>
+              <string>xin chào bạn </string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -588,9 +588,9 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_2">
+         <widget class="QWidget" name="hocphan">
           <layout class="QGridLayout" name="gridLayout_3">
-           <item row="0" column="0">
+           <item row="1" column="0">
             <widget class="QLabel" name="label_5">
              <property name="font">
               <font>
@@ -598,16 +598,19 @@
               </font>
              </property>
              <property name="text">
-              <string>Dashboard Page</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
+           <item row="0" column="0">
+            <widget class="QTableView" name="tableView"/>
+           </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_3">
+         <widget class="QWidget" name="lophoc">
           <layout class="QGridLayout" name="gridLayout_4">
            <item row="0" column="0">
             <widget class="QLabel" name="label_6">
@@ -626,7 +629,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_4">
+         <widget class="QWidget" name="phancong">
           <layout class="QGridLayout" name="gridLayout_5">
            <item row="0" column="0">
             <widget class="QLabel" name="label_7">
@@ -645,7 +648,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_5">
+         <widget class="QWidget" name="lichhoc">
           <layout class="QGridLayout" name="gridLayout_6">
            <item row="0" column="0">
             <widget class="QLabel" name="label_8">
@@ -664,7 +667,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="page_6">
+         <widget class="QWidget" name="giangvien">
           <layout class="QGridLayout" name="gridLayout_7">
            <item row="0" column="0">
             <widget class="QStackedWidget" name="stackedWidget_2">
