@@ -1,9 +1,7 @@
-import sys
 from tkinter import *
 import sqlite3
 from tkinter import messagebox, ttk
 
-from PyQt5.uic.properties import QtWidgets
 
 main_GV = Tk()
 main_GV.title("Giảng viên")

@@ -1,6 +1,11 @@
 import sqlite3
+<<<<<<< HEAD
 from tkinter import Tk, Label, Entry, Button, StringVar, messagebox, END
 from tkinter import ttk
+=======
+from tkinter import *
+from tkinter import messagebox
+>>>>>>> 378bc23799f73c30bbe304117a4453f4378e937c
 
 def them_mon_hoc():
     id_monhoc = id_monhoc_var.get()

@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d71f07e-bb9e-480d-aea0-4eda99db62da" name="Changes" comment="" />
+    <list default="true" id="0d71f07e-bb9e-480d-aea0-4eda99db62da" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThemMonHoc.py" beforeDir="false" afterPath="$PROJECT_DIR$/ThemMonHoc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/createDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/createDB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_GV.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_GV.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +51,7 @@
     &quot;Python.testCode.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/pythoncode/pythonBegin&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/pythoncode/BTL_QLGV&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -281,6 +286,9 @@
       <workItem from="1718900448243" duration="2627000" />
       <workItem from="1718951724459" duration="22897000" />
       <workItem from="1719023074093" duration="838000" />
+      <workItem from="1719389346631" duration="1450000" />
+      <workItem from="1720107005492" duration="5962000" />
+      <workItem from="1720113371773" duration="2439000" />
     </task>
     <servers />
   </component>

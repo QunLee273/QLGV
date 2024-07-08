@@ -1,7 +1,7 @@
 import sqlite3
 
 # Kết nối tới cơ sở dữ liệu SQLite
-conn = sqlite3.connect('nam/qlgv.db')
+conn = sqlite3.connect('qlgv.db')
 cur = conn.cursor()
 
 # Tạo bảng Giảng viên
